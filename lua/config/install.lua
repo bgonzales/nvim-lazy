@@ -25,5 +25,8 @@ require("lazy").setup({
 	require("plugins.autocomplete"), -- nvim-cmp
 	require("plugins.language_servers"), -- nvim-lspconfig
 	require("plugins.comments"),
+	require("plugins.terminal"),
+	require("plugins.starter"),
+	require("plugins.todos"),
 })
 

@@ -3,7 +3,10 @@ return {
 	dependencies = {
 		'hrsh7th/cmp-nvim-lsp',
 		'L3MON4D3/LuaSnip',
-		'saadparwaiz1/cmp_luasnip'
+		'saadparwaiz1/cmp_luasnip',
+		'hrsh7th/cmp-buffer',
+		'hrsh7th/cmp-path',
+		'f3fora/cmp-spell'
 	},
 	opts = function()
 		local cmp = require 'cmp'
@@ -42,9 +45,13 @@ return {
 					end, { 'i', 's' }),
 			},
 			sources = {
-				{ name = 'nvim_lsp' },
-				{ name = 'luasnip' },
+				{ name = 'nvim_lsp', max_item_count = 7 },
+				{ name = 'luasnip', max_item_count = 7 },
+				{ name = 'path' },
+				{ name = 'buffer', max_item_count = 5 },
+				{ name = 'spell', max_item_count = 3 },
 			},
+			experimental = { ghost_text = true },
 		}
 	end
 }

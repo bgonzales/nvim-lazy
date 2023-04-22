@@ -1,18 +1,21 @@
 return {
-	'numToStr/Comment.nvim',
-	opts = {
-		toggler = {
-			---Line-comment toggle keymap
-			line = '<Leader>ci',
-			---Block-comment toggle keymap
-			block = '<Leader>co',
+	{ "JoosepAlviste/nvim-ts-context-commentstring", lazy = true },
+	{
+		"echasnovski/mini.comment",
+		event = "VeryLazy",
+		opts = {
+			hooks = {
+				pre = function()
+					require("ts_context_commentstring.internal").update_commentstring({})
+				end,
+			},
+			mappings = {
+				comment = '<Leader>ci',
+				comment_line = '<Leader>ci',
+			},
 		},
-		---LHS of operator-pending mappings in NORMAL and VISUAL mode
-		opleader = {
-			---Line-comment keymap
-			line = '<Leader>ci',
-			---Block-comment keymap
-			block = '<Leader>co',
-		},
-	}
+		config = function(_, opts)
+			require("mini.comment").setup(opts)
+		end,
+	},
 }

@@ -34,22 +34,28 @@ vim.opt.undofile = true
 
 -- vim.g.loaded_netrw = 0 -- disable netrw
 -- vim.g.loaded_netrwPlugin = 0 -- disable netrw
--- vim.g.netrw_banner = 0
--- vim.g.netrw_liststyle = 0
--- vim.g.netrw_browse_split = 4
--- vim.g.netrw_altv = 1
--- vim.g.netrw_preview = 1
--- vim.g.netrw_winsize = 80
+vim.g.netrw_banner = 0
+vim.g.netrw_liststyle = 0
+vim.g.netrw_browse_split = 4
+vim.g.netrw_altv = 1
+vim.g.netrw_preview = 1
+vim.g.netrw_winsize = 80
 
 -- Always show sign column
 vim.opt.signcolumn = 'yes'
 
+-- Case of normal letters is ignored
 vim.opt.ignorecase = true
+
+-- Override the 'ignorecase' option if the search pattern contains upper case characters.
 vim.opt.smartcase = true
 
-
+-- Enables 24-bit RGB colors
 vim.opt.termguicolors = true
 
+-- Spell checking, if words are not recognized they are highlighted see `:help spell`
+vim.opt.spell = true
+vim.opt.spelllang = { 'en_us' }
 
 -- Save all changes when pressing Ctrl+s
 -- vim.keymap.set('i', '<C-s>', '<Esc>:wa<CR>')
