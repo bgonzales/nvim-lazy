@@ -47,6 +47,10 @@ vim.opt.signcolumn = 'yes'
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
+
+vim.opt.termguicolors = true
+
+
 -- Save all changes when pressing Ctrl+s
 -- vim.keymap.set('i', '<C-s>', '<Esc>:wa<CR>')
 vim.keymap.set({'n', 'i', 'v', 's'}, '<C-s>', '<CMD>wa<CR><ESC>')

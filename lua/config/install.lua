@@ -8,13 +8,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	{
-		"folke/tokyonight.nvim",
-		lazy = false, -- make sure we load this during startup if it is your main colorscheme
-		priority = 1000, -- make sure to load this before all the other start plugins
-		config = function()
-			vim.cmd([[colorscheme tokyonight]])
-		end,
-	},{
 		"lukas-reineke/indent-blankline.nvim",
 		lazy = false,
 		opts = {
@@ -24,6 +17,7 @@ require("lazy").setup({
 
 	{ "nvim-tree/nvim-web-devicons", lazy = true },
 
+	require("plugins.theme"),
 	require("plugins.status_line"),
 	require("plugins.gitsigns"),
 	require("plugins.telescope"),  -- File browser and fuzzy search
