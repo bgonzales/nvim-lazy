@@ -16,3 +16,12 @@ vim.api.nvim_create_autocmd({ "VimResized" }, {
 	end,
 })
 
+-- Disables highlight for group SpellBad. Run :filter Spell highlight
+--
+-- BufNewFile   When starting to edit a file that doesn't exist.
+-- BufReadPost	When starting to edit a new buffer, after reading the file into the buffer.
+vim.api.nvim_create_autocmd({"BufNewFile", "BufReadPost"}, {
+	callback = function()
+		vim.cmd("hi clear SpellBad")
+	end,
+})
