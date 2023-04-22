@@ -23,5 +23,6 @@ vim.api.nvim_create_autocmd({ "VimResized" }, {
 vim.api.nvim_create_autocmd({"BufNewFile", "BufReadPost"}, {
 	callback = function()
 		vim.cmd("hi clear SpellBad")
+		vim.cmd("hi clear SpellLocal")
 	end,
 })
