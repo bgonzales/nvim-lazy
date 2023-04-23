@@ -20,7 +20,7 @@ vim.api.nvim_create_autocmd({ "VimResized" }, {
 --
 -- BufNewFile   When starting to edit a file that doesn't exist.
 -- BufReadPost	When starting to edit a new buffer, after reading the file into the buffer.
-vim.api.nvim_create_autocmd({"BufNewFile", "BufReadPost", "TermOpen"}, {
+vim.api.nvim_create_autocmd({"BufNewFile", "BufRead", "TermOpen", "ColorScheme"}, {
 	group = vim.api.nvim_create_augroup("NoSpellHighlight", {}),
 	callback = function()
 		vim.cmd("hi clear SpellBad")
