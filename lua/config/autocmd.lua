@@ -21,6 +21,7 @@ vim.api.nvim_create_autocmd({ "VimResized" }, {
 -- BufNewFile   When starting to edit a file that doesn't exist.
 -- BufReadPost	When starting to edit a new buffer, after reading the file into the buffer.
 vim.api.nvim_create_autocmd({"BufNewFile", "BufReadPost", "TermOpen"}, {
+	group = vim.api.nvim_create_augroup("NoSpellHighlight", {}),
 	callback = function()
 		vim.cmd("hi clear SpellBad")
 		vim.cmd("hi clear SpellLocal")
@@ -29,7 +30,7 @@ vim.api.nvim_create_autocmd({"BufNewFile", "BufReadPost", "TermOpen"}, {
 
 -- Open help panel on the right
 vim.api.nvim_create_autocmd("BufWinEnter", {
-	group = vim.api.nvim_create_augroup("help_window_right", {}),
+	group = vim.api.nvim_create_augroup("HelpWindowRight", {}),
 	pattern = { "*.txt" },
 	callback = function()
 		if vim.o.filetype == 'help' then vim.cmd.wincmd("L") end
