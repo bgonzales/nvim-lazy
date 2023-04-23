@@ -40,8 +40,6 @@ return {
 				clangd = {},
 				docker_compose_language_service = {},
 				dockerls = {},
-				intelephense = {},
-				sqlls = {},
 				lua_ls = {
 					Lua = {
 						workspace = { checkThirdParty = false },
