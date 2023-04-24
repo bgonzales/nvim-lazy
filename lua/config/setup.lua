@@ -63,3 +63,9 @@ vim.keymap.set({'n', 'i', 'v', 's'}, '<C-s>', '<CMD>wa<CR><ESC>')
 
 -- Change from insert to normal mode inside terminal buffer
 vim.keymap.set('t', '<Esc>', '<C-\\><c-n>')
+
+-- Move current/selected lines
+vim.keymap.set("n", "<C-j>", "<CMD>m . +1<CR>==", { desc = "Move line down" })
+vim.keymap.set("n", "<C-k>", "<CMD>m . -2<CR>==", { desc = "Move line up" })
+vim.keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
+vim.keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
