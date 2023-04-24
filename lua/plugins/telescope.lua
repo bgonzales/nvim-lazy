@@ -41,6 +41,7 @@ return {
 			end,
 			desc = "Find Plugin File",
 		},
+		{ "<leader>co", "<CMD>Telescope find_files cwd=%:p:h<CR>", desc = "Find in [C]urrent folder"},
 		{ "<leader>sf", "<CMD>Telescope current_buffer_fuzzy_find<CR>", desc = "Fuzzily [S]earch in current [F]ile" },
 		{ "<leader>saf", "<CMD>Telescope live_grep<CR>", desc = "[S]earch in [A]ll [F]iles" },
 		{ '<leader>gs', "<CMD>Telescope git_status<CR>", desc = '[G]it [S]tatus' },
