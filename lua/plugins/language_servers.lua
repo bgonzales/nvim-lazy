@@ -80,6 +80,18 @@ return {
 				}
 			end
 
+			if vim.loop.os_uname().sysname == "Darwin" then
+				-- Configure SourceKit LSP for Swift
+				-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#sourcekit
+				-- https://github.com/apple/sourcekit-lsp
+				local lsp_config = require('lspconfig')
+				lsp_config.sourcekit.setup {
+					capabilities = capabilities,
+					on_attach = on_attach,
+					filetypes = { "swift", "objective-c", "objective-cpp" },
+					root_pattern = lsp_config.util.root_pattern("Package.swift", ".git", '*.swift')
+				}
+			end
 		end,
 	},
 }
