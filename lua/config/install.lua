@@ -19,7 +19,7 @@ require("lazy").setup({
 
 	require("plugins.theme"),
 	require("plugins.status_line"),
-	require("plugins.gitsigns"),
+	require("plugins.git"),
 	require("plugins.telescope"),  -- File browser and fuzzy search
 	require("plugins.treesitter"), -- Language parser
 	require("plugins.autocomplete"), -- nvim-cmp
