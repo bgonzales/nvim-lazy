@@ -89,7 +89,7 @@ return {
 					capabilities = capabilities,
 					on_attach = on_attach,
 					filetypes = { "swift", "objective-c", "objective-cpp" },
-					root_pattern = lsp_config.util.root_pattern("Package.swift", ".git", '*.swift')
+					root_pattern = lsp_config.util.root_pattern("Package.swift", ".git")
 				}
 			end
 		end,
