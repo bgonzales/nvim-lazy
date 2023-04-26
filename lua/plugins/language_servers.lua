@@ -33,6 +33,7 @@ return {
 			servers = {
 				tailwindcss = {},
 				tsserver = {},
+				eslint = {},
 				jsonls = {},
 				texlab = {},
 				cssls = {},
