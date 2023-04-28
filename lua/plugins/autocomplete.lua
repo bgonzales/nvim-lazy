@@ -4,9 +4,10 @@ return {
 		'hrsh7th/cmp-nvim-lsp',
 		'L3MON4D3/LuaSnip',
 		'saadparwaiz1/cmp_luasnip',
+		'hrsh7th/cmp-nvim-lua',
 		'hrsh7th/cmp-buffer',
 		'hrsh7th/cmp-path',
-		'f3fora/cmp-spell'
+		'f3fora/cmp-spell',
 	},
 	opts = function()
 		local cmp = require 'cmp'
@@ -26,31 +27,33 @@ return {
 					select = true,
 				},
 				['<Tab>'] = cmp.mapping(function(fallback)
-					if cmp.visible() then
-						cmp.select_next_item()
-					elseif luasnip.expand_or_jumpable() then
+					if luasnip.expand_or_jumpable() then
 						luasnip.expand_or_jump()
 					else
 						fallback()
 					end
-					end, { 'i', 's' }),
+					end, { 'i', 's' }
+				),
 				['<S-Tab>'] = cmp.mapping(function(fallback)
-					if cmp.visible() then
-						cmp.select_prev_item()
-					elseif luasnip.jumpable(-1) then
+					if luasnip.jumpable(-1) then
 						luasnip.jump(-1)
 					else
 						fallback()
 					end
-					end, { 'i', 's' }),
+					end, { 'i', 's' }
+				),
 			},
-			sources = {
-				{ name = 'nvim_lsp', max_item_count = 10 },
-				{ name = 'luasnip', max_item_count = 10 },
-				{ name = 'buffer', max_item_count = 5 },
-				{ name = 'path' },
-				{ name = 'spell', max_item_count = 3 },
-			},
+			sources = cmp.config.sources (
+				{
+					{ name = "nvim_lua", max_item_count = 10 },
+					{ name = 'nvim_lsp', max_item_count = 10 },
+					{ name = 'luasnip' },
+					{ name = 'buffer', max_item_count = 5},
+				}, {
+					{ name = 'path' },
+					{ name = 'spell', max_item_count = 5 },
+				}
+			),
 			formatting = {
 				format = function(_, item)
 					local icons = require("config.icons").icons.kinds
@@ -58,7 +61,7 @@ return {
 						item.kind = icons[item.kind] .. item.kind
 					end
 					return item
-				end
+				end,
 			},
 			experimental = { ghost_text = true },
 		}
