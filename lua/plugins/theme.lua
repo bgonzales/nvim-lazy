@@ -16,7 +16,7 @@ return {
 				end,
 				set_light_mode = function()
 					vim.api.nvim_set_option('background', 'light')
-					vim.cmd([[colorscheme xcodelight]])
+					vim.cmd([[colorscheme xcodelighthc]])
 				end,
 			}
 			require("auto-dark-mode").init()
