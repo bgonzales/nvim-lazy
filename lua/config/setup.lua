@@ -5,7 +5,7 @@ vim.g.maplocalleader = ','
 
 -- Enable line numbers and relative position
 vim.opt.number = true
-vim.opt.relativenumber = true
+vim.opt.relativenumber = false
 
 -- Highlight on search
 vim.opt.hlsearch = true
