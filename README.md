@@ -10,4 +10,7 @@ Personal NeoVim configuration
 - [ ] theHamsta/nvim-dap-virtual-text
 - [ ] rcarriga/nvim-dap-ui
 
-- [ ] sindrets/diffview.nvim
+## TODOs
+
+- [ ] Fix startup flicker when colorscheme is set through plugin
+- [ ] Move Xcode theme to lua
