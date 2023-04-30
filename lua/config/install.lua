@@ -6,7 +6,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({
+local plugins = {
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		lazy = false,
@@ -28,5 +28,13 @@ require("lazy").setup({
 	require("plugins.terminal"),
 	require("plugins.starter"),
 	require("plugins.todos"),
-})
+}
+
+local options = {
+	install = {
+		colorscheme = { "xcodelighthc" }
+	}
+}
+
+require("lazy").setup(plugins, options)
 
