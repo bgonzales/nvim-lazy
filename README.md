@@ -13,4 +13,4 @@ Personal NeoVim configuration
 ## TODOs
 
 - [ ] Fix startup flicker when colorscheme is set through plugin
-- [ ] Move Xcode theme to lua
+- [ ] Move Xcode theme to lua plugin
