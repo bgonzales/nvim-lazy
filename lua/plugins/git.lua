@@ -1,9 +1,13 @@
 return {
 	{
 		"lewis6991/gitsigns.nvim",
-		lazy = true,
+		lazy = false,
 		event = { "BufReadPre", "BufNewFile" },
 		opts = {
+			signcolumn = true,
+			numhl      = false,
+			linehl     = true,
+			word_diff  = true,
 			current_line_blame = false,
 			current_line_blame_opts = {
 				virt_text = true,
@@ -26,6 +30,7 @@ return {
 		}
 	}, {
 		'sindrets/diffview.nvim',
+		lazy = false,
 		dependencies = {
 			'nvim-lua/plenary.nvim'
 		},
