@@ -7,6 +7,9 @@ vim.g.maplocalleader = ','
 vim.opt.number = true
 vim.opt.relativenumber = false
 
+-- Highlight current line
+vim.opt.cursorline = true
+
 -- Highlight on search
 vim.opt.hlsearch = true
 
