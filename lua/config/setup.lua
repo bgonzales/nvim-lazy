@@ -60,6 +60,10 @@ vim.opt.termguicolors = true
 vim.opt.spell = true
 vim.opt.spelllang = { 'en_us' }
 
+-- Split orientation
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+
 -- Save all changes when pressing Ctrl+s
 -- vim.keymap.set('i', '<C-s>', '<Esc>:wa<CR>')
 vim.keymap.set({'n', 'i', 'v', 's'}, '<C-s>', '<CMD>wa<CR><ESC>')
