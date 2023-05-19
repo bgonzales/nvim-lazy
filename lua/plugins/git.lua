@@ -7,7 +7,7 @@ return {
 			signcolumn = true,
 			numhl      = false,
 			linehl     = true,
-			word_diff  = true,
+			word_diff  = false,
 			current_line_blame = false,
 			current_line_blame_opts = {
 				virt_text = true,
