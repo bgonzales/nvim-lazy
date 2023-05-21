@@ -61,10 +61,6 @@ return {
 				vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {buffer=0, desc='[C]ode [A]ction'})
 				vim.keymap.set('n', '<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, {buffer=0, desc='[W]orkspace [S]ymbols'})
 				vim.keymap.set('n', '<leader>ds', require('telescope.builtin').lsp_document_symbols, {buffer=0, desc='[D]ocument [S]ymbols'})
-
-				if client.name ~= "null-ls" then
-					client.server_capabilities.documentFormattingProvider = true
-				end
 			end
 
 			vim.diagnostic.config(vim.deepcopy(opts.diagnostics))
@@ -101,26 +97,29 @@ return {
 		end,
 	},
 	{
-		"jay-babu/mason-null-ls.nvim",
-		event = { "BufReadPre", "BufNewFile" },
+		"jose-elias-alvarez/null-ls.nvim",
 		dependencies = {
-			"mason.nvim",
-			"jose-elias-alvarez/null-ls.nvim",
+			{
+				"jay-babu/mason-null-ls.nvim",
+				dependencies = {
+					'williamboman/mason.nvim',
+				},
+				opts = {
+					ensure_installed = {
+						"stylua", "prettierd"
+					},
+				}
+			}
 		},
-		config = function()
+
+		opts = function()
 			local null_ls = require("null-ls")
-			null_ls.setup {
-				event = { "BufReadPre", "BufNewFile" },
+			return {
 				sources = {
 					null_ls.builtins.formatting.stylua,
 					null_ls.builtins.formatting.prettierd
 				}
 			}
-		end,
-
-		opts= {
-			ensure_installed = nil,
-			automatic_setup = true,
-		}
+		end
 	},
 }
