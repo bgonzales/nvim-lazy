@@ -52,14 +52,19 @@ return {
 		},
 
 		config = function(_, opts)
-			local on_attach = function (_, _)
+			local on_attach = function (client, _)
 				vim.keymap.set('n', 'K', vim.lsp.buf.hover, {buffer=0, desc='Hover Documentation'})
 				vim.keymap.set('n', 'rn', vim.lsp.buf.rename, {buffer=0, desc='[R]ename'})
 				vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {buffer=0, desc='[G]o to [D]efinition'})
+				vim.keymap.set('n', '<leader>ff', vim.lsp.buf.format, {buffer=0, desc='[F]ormat [F]ile]'})
 				vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, {buffer=0, desc='[G]o to [R]eferences'})
 				vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {buffer=0, desc='[C]ode [A]ction'})
 				vim.keymap.set('n', '<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, {buffer=0, desc='[W]orkspace [S]ymbols'})
 				vim.keymap.set('n', '<leader>ds', require('telescope.builtin').lsp_document_symbols, {buffer=0, desc='[D]ocument [S]ymbols'})
+
+				if client.name ~= "null-ls" then
+					client.server_capabilities.documentFormattingProvider = true
+				end
 			end
 
 			vim.diagnostic.config(vim.deepcopy(opts.diagnostics))
@@ -87,12 +92,35 @@ return {
 				-- https://github.com/apple/sourcekit-lsp
 				local lsp_config = require('lspconfig')
 				lsp_config.sourcekit.setup {
-					capabilities = capabilities,
 					on_attach = on_attach,
+					capabilities = capabilities,
 					filetypes = { "swift", "objective-c", "objective-cpp" },
 					root_pattern = lsp_config.util.root_pattern("Package.swift", ".git")
 				}
 			end
 		end,
+	},
+	{
+		"jay-babu/mason-null-ls.nvim",
+		event = { "BufReadPre", "BufNewFile" },
+		dependencies = {
+			"mason.nvim",
+			"jose-elias-alvarez/null-ls.nvim",
+		},
+		config = function()
+			local null_ls = require("null-ls")
+			null_ls.setup {
+				event = { "BufReadPre", "BufNewFile" },
+				sources = {
+					null_ls.builtins.formatting.stylua,
+					null_ls.builtins.formatting.prettierd
+				}
+			}
+		end,
+
+		opts= {
+			ensure_installed = nil,
+			automatic_setup = true,
+		}
 	},
 }
