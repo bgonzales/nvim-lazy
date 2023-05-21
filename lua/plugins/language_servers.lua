@@ -106,7 +106,7 @@ return {
 				},
 				opts = {
 					ensure_installed = {
-						"stylua", "prettierd"
+						"stylua", "prettierd", "clang_format"
 					},
 				}
 			}
@@ -117,7 +117,8 @@ return {
 			return {
 				sources = {
 					null_ls.builtins.formatting.stylua,
-					null_ls.builtins.formatting.prettierd
+					null_ls.builtins.formatting.prettierd,
+					null_ls.builtins.formatting.clang_format
 				}
 			}
 		end
