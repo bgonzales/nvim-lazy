@@ -23,7 +23,7 @@ local plugins = {
 	require("plugins.telescope"),  -- File browser and fuzzy search
 	require("plugins.treesitter"), -- Language parser
 	require("plugins.autocomplete"), -- nvim-cmp
-	require("plugins.language_servers"), -- nvim-lspconfig
+	require("plugins.language"), -- nvim-lspconfig, null-ls(formatter)
 	require("plugins.comments"),
 	require("plugins.terminal"),
 	require("plugins.starter"),

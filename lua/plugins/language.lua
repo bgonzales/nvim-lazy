@@ -58,7 +58,7 @@ return {
 				vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {buffer=0, desc='[G]o to [D]efinition'})
 				vim.keymap.set('n', '<leader>ff', vim.lsp.buf.format, {buffer=0, desc='[F]ormat [F]ile]'})
 				vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, {buffer=0, desc='[G]o to [R]eferences'})
-				vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {buffer=0, desc='[C]ode [A]ction'})
+				vim.keymap.set({'n', 'v'}, '<leader>ca', vim.lsp.buf.code_action, {buffer=0, desc='[C]ode [A]ction'})
 				vim.keymap.set('n', '<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, {buffer=0, desc='[W]orkspace [S]ymbols'})
 				vim.keymap.set('n', '<leader>ds', require('telescope.builtin').lsp_document_symbols, {buffer=0, desc='[D]ocument [S]ymbols'})
 			end
@@ -118,7 +118,9 @@ return {
 				sources = {
 					null_ls.builtins.formatting.stylua,
 					null_ls.builtins.formatting.prettierd,
-					null_ls.builtins.formatting.clang_format
+					null_ls.builtins.formatting.clang_format,
+					null_ls.builtins.code_actions.eslint,
+					null_ls.builtins.code_actions.gitsigns
 				}
 			}
 		end
