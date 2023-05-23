@@ -41,7 +41,7 @@ return {
 		end,
 		keys = {
 			{ '<Leader>dv', "<CMD>DiffviewOpen<CR>", desc = 'Open [D]iff [V]iew' },
-			{ '<Leader>df', "<CMD>DiffviewFileHistory<CR>", desc = 'Open [D]iff [F]ile history' },
+			{ '<Leader>df', "<CMD>DiffviewFileHistory %<CR>", desc = 'Open [D]iff [F]ile history' },
 		}
 	}
 }
