@@ -5,17 +5,17 @@ return {
 		event = { "BufReadPre", "BufNewFile" },
 		opts = {
 			signcolumn = true,
-			numhl      = false,
-			linehl     = true,
-			word_diff  = false,
+			numhl = false,
+			linehl = false,
+			word_diff = false,
 			current_line_blame = false,
 			current_line_blame_opts = {
 				virt_text = true,
-				virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
+				virt_text_pos = "eol", -- 'eol' | 'overlay' | 'right_align'
 				delay = 50,
 				ignore_whitespace = false,
 			},
-			current_line_blame_formatter = '<author>, <author_time:%Y-%m-%d> - <summary>',
+			current_line_blame_formatter = "<author>, <author_time:%Y-%m-%d> - <summary>",
 			on_attach = function(buffer)
 				local gs = package.loaded.gitsigns
 
@@ -29,19 +29,20 @@ return {
 				map("n", "<leader>gb", "<CMD>Gitsigns toggle_current_line_blame<CR>", "[G]it [B]lame")
 				map("n", "<leader>gd", gs.diffthis, "[G]it [D]iff")
 			end,
-		}
-	}, {
-		'sindrets/diffview.nvim',
+		},
+	},
+	{
+		"sindrets/diffview.nvim",
 		lazy = false,
 		dependencies = {
-			'nvim-lua/plenary.nvim'
+			"nvim-lua/plenary.nvim",
 		},
 		config = function()
-			require('diffview').setup {}
+			require("diffview").setup({})
 		end,
 		keys = {
-			{ '<Leader>dv', "<CMD>DiffviewOpen<CR>", desc = 'Open [D]iff [V]iew' },
-			{ '<Leader>df', "<CMD>DiffviewFileHistory %<CR>", desc = 'Open [D]iff [F]ile history' },
-		}
-	}
+			{ "<Leader>dv", "<CMD>DiffviewOpen<CR>",          desc = "Open [D]iff [V]iew" },
+			{ "<Leader>df", "<CMD>DiffviewFileHistory %<CR>", desc = "Open [D]iff [F]ile history" },
+		},
+	},
 }
