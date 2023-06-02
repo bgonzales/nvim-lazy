@@ -37,7 +37,7 @@ return {
 		{
 			"<leader>o",
 			function()
-				require("telescope.builtin").find_files()
+				require("telescope.builtin").find_files({hidden=true})
 			end,
 			desc = "Find Plugin File",
 		},
