@@ -2,6 +2,11 @@
 
 Personal NeoVim configuration
 
+## Requirements
+
+- Terminal with true colors.
+- `brew install npm`
+
 ## Plugins to try
 
 - [ ] <https://github.com/startup-nvim/startup.nvim>
@@ -12,5 +17,4 @@ Personal NeoVim configuration
 
 ## TODOs
 
-- [ ] Fix startup flicker when colorscheme is set through plugin
 - [ ] Move Xcode theme to lua plugin
